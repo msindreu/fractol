@@ -6,11 +6,12 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/01/30 18:14:50 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/09 17:50:47 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minilibx_macos/mlx.h"
+#include "../mlx/mlx.h"
+#include "../inc/defines.h"
 
 int	main(void)
 {
