@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/28 16:38:22 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:03:22 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,32 @@ int	main(void)
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	while (i < img.line_length) {
+	
+	//tres lines de colors
+
+	/*while (i < img.line_length) {
 	my_mlx_pixel_put(&img, i, 1080/4, 0x003355FF);
 	my_mlx_pixel_put(&img, i, 1080/2, 0X00FF1122);
-	my_mlx_pixel_put(&img, i, 1080/2 + 1080/4, 0X0000FF00);
+	my_mlx_pixel_put(&img, i, 1080/2 + 1080/4, 0X0014bebe);
+	i++;
+	}*/
+
+	//4 pixels grocs a dalt pel bru
+	/*while (i < 4){
+	my_mlx_pixel_put(&img,i, 5, 0x00e8b025);
+	i++;
+	}*/
+
+	//quadradet verd bruno
+	while(i <= 100) {
+	my_mlx_pixel_put(&img, 100+i, 100, 0X00427f3b);
+	my_mlx_pixel_put(&img, 100+i, 200, 0X00427f3b);
+	my_mlx_pixel_put(&img, 100, 100+i, 0X00427f3b);
+	my_mlx_pixel_put(&img, 200, 100+i, 0X00427f3b);
 	i++;
 	}
+
+
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 
