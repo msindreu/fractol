@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/28 17:03:22 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/28 17:25:57 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ int	main(void)
 	//void *mlx_wind;
 	void *mlx_win;
 	t_data	img;
-	int	i;
+	float	i;
+	float	j;
 
 	mlx = mlx_init();
 	i = 0;
+	j = 0;
 	//mlx_wind = mlx_new_window(mlx, 1920, 1080, "Fractol");
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Fracttititittititiititititit");
 	img.img = mlx_new_image(mlx, 1920, 1080);
@@ -61,12 +63,19 @@ int	main(void)
 	}*/
 
 	//quadradet verd bruno
-	while(i <= 100) {
+	/*while(i <= 100) {
 	my_mlx_pixel_put(&img, 100+i, 100, 0X00427f3b);
 	my_mlx_pixel_put(&img, 100+i, 200, 0X00427f3b);
 	my_mlx_pixel_put(&img, 100, 100+i, 0X00427f3b);
 	my_mlx_pixel_put(&img, 200, 100+i, 0X00427f3b);
 	i++;
+	}*/
+
+	//diagonal blaveta
+	while (i < 1920 && j < 1080) {
+		my_mlx_pixel_put(&img, i, j, 0X0014bebe);
+		i = i + 1 + 1920/1080;
+		j++;
 	}
 
 
