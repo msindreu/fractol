@@ -6,46 +6,35 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/30 16:03:24 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/30 16:42:43 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../inc/defines.h"
-
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	              t_data;
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
+#include "utils.c"
 
 int	main(void)
 {
 	void *mlx;
-	//void *mlx_wind;
 	void *mlx_win;
 	t_data	img;
 	float	i;
 	float	j;
+	t_point	pixel;
 
 	mlx = mlx_init();
 	i = 0;
 	j = 0;
-	//mlx_wind = mlx_new_window(mlx, 1920, 1080, "Fractol");
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Fracttititittititiititititit");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
+	mlx_win = mlx_new_window(mlx, WINDOW_X, WINDOW_Y, "Fracttititittititiititititit");
+	img.img = mlx_new_image(mlx, WINDOW_X, WINDOW_Y);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	pixel.x = 100+i;
+	pixel.y = 100+j;
+	pixel.color= AZULMARIN;
+	
+
+	
 	
 	//tres lines de colors
 
@@ -64,8 +53,12 @@ int	main(void)
 
 	//quadradet verd bruno
 	while(i <= 100 && j <= 100) {
-	my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
-	my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
+	pixel.x = 100+i;
+	pixel.y = 100+j;
+	pixel.color = AZULMARIN;
+	my_mlx_pixel_put(&img, pixel);
+	//my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
+	//my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
 	//my_mlx_pixel_put(&img, 100, 100+i, VERD);
 	//my_mlx_pixel_put(&img, 200, 100+i, VERD);
 	i++;
