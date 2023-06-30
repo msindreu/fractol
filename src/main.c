@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/28 17:29:01 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:29:49 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,24 @@ int	main(void)
 	}*/
 
 	//quadradet verd bruno
-	/*while(i <= 100) {
-	my_mlx_pixel_put(&img, 100+i, 100, 0X00427f3b);
-	my_mlx_pixel_put(&img, 100+i, 200, 0X00427f3b);
-	my_mlx_pixel_put(&img, 100, 100+i, 0X00427f3b);
-	my_mlx_pixel_put(&img, 200, 100+i, 0X00427f3b);
+	while(i <= 100 && j <= 100) {
+	my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
+	my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
+	//my_mlx_pixel_put(&img, 100, 100+i, VERD);
+	//my_mlx_pixel_put(&img, 200, 100+i, VERD);
 	i++;
-	}*/
+	if (i == 100) {
+		i=0;
+		j++;
+	}
+	}
 
 	//diagonal blaveta
-	while (i < 1920 && j < 1080) {
+/*	while (i < 1920 && j < 1080) {
 		my_mlx_pixel_put(&img, i, j, 0X0014bebe);
 		i = i + 1 + 1920/1080;
 		j = j +1 - 1920/1080;
-	}
+	}*/
 
 
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
