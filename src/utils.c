@@ -25,6 +25,18 @@ void	my_mlx_pixel_put(t_data *data, t_point pixel)
 	*(int*)dst = pixel.color;
 }
 
+void	ft_putstr(char *str) 
+{
+	int i;
+
+	i = 0;
+	while(str[i] != '\0') 
+	{
+		write(2, str + i, 1);
+		i++;
+	}
+}
+
 void	ft_error(void)
 {
 	ft_putstr(ERROR);
@@ -33,24 +45,3 @@ void	ft_error(void)
 	ft_putstr(MANDELBROT);
 }
 
-void	ft_putstr(char *str) 
-{
-	int i;
-
-	i = 0;
-	while(s[i] != ='/0') 
-	{
-		write(2, s + i, 1);
-	}
-}
-
-void	ft_check(char **argv)
-{
-	int i;
-
-	if (!argv[1])
-	{
-		ft_error(void);
-	}
-
-}
