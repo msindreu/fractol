@@ -12,6 +12,11 @@
 
 #include "../inc/defines.h"
 
+# define ERROR "Error, please neter a valid argument\n"
+# define PLEASE "Please, write one of the follow options:\n"
+# define JULIA "Julia (x, y)\n"
+# define MANDELBROT "Mandelbrot\n"
+
 void	my_mlx_pixel_put(t_data *data, t_point pixel)
 {
 	char	*dst;
@@ -20,3 +25,32 @@ void	my_mlx_pixel_put(t_data *data, t_point pixel)
 	*(int*)dst = pixel.color;
 }
 
+void	ft_error(void)
+{
+	ft_putstr(ERROR);
+	ft_putstr(PLEASE);
+	ft_putstr(JULIA);
+	ft_putstr(MANDELBROT);
+}
+
+void	ft_putstr(char *str) 
+{
+	int i;
+
+	i = 0;
+	while(s[i] != ='/0') 
+	{
+		write(2, s + i, 1);
+	}
+}
+
+void	ft_check(char **argv)
+{
+	int i;
+
+	if (!argv[1])
+	{
+		ft_error(void);
+	}
+
+}
