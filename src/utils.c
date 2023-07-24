@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:37:50 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:45:40 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_error(void)
 
 int		ft_check_input(int argc, char **argv) 
 {
-	if (argc > 1 && argv) //&& !ft_strcmp(argv[1], "mandelbrot"))
+	if (argc > 1 && argv && ft_strcmp(argv[1], "mandelbrot") != 0)
 	{
 		ft_error();
 		return (1);
