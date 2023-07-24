@@ -13,6 +13,10 @@
 #ifndef DEFINES_H
 # define DEFINES_H
 
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
 # define WINDOW_X 1920
 # define WINDOW_Y 1080
 
@@ -31,6 +35,11 @@ typedef struct s_point {
 	int		color;
 }                 t_point;
 
+void	my_mlx_pixel_put(t_data *data, t_point pixel);
+int		ft_atoi(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+void	ft_putstr(char *str);
+void	ft_error(void);
 void	my_mlx_pixel_put(t_data *data, t_point pixel);
 
 # define TURQUESA 	0X60FAD2

@@ -1,50 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_libft.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 10:25:14 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/06/30 18:22:15 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 
-# define ERROR "Error, please neter a valid argument\n"
-# define PLEASE "Please, write one of the follow options:\n"
-# define JULIA "Julia (x, y)\n"
-# define MANDELBROT "Mandelbrot\n"
-
-void	my_mlx_pixel_put(t_data *data, t_point pixel)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	*dst;
-
-	dst = data->addr + ((pixel.y - 1) * WINDOW_X * 4 + pixel.x * 4);
-	*(int*)dst = pixel.color;
-}
-
-void	ft_putstr(char *str) 
-{
-	int i;
+	size_t	i;
 
 	i = 0;
-	while(str[i] != '\0') 
+	while (s1[i] && s2[i])
 	{
-		write(2, str + i, 1);
+		if (s1[i] == s2[i])
+			i++;
+		else if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	nb;
+	int	s;
+
+	i = 0;
+	s = 1;
+	nb = 0;
+	if (str[i] == '-')
+	{
+		s = -s;
 		i++;
 	}
+	while (str[i])
+	{
+		nb = nb * 10 + str[i] - 48;
+		i++;
+	}
+	return (nb * s);
 }
 
-void	ft_error(void)
-{
-	ft_putstr(ERROR);
-	ft_putstr(PLEASE);
-	ft_putstr(JULIA);
-	ft_putstr(MANDELBROT);
-}
-<<<<<<< HEAD
-=======
-
->>>>>>> 971bc8ae81e3b2ff0797e89078d56457c68c3969
