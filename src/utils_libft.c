@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/30 18:22:15 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:39:03 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,14 @@ int	ft_atoi(char *str)
 	return (nb * s);
 }
 
+void	ft_putstr(char *str) 
+{
+	int	i;
+
+	i = 0;
+	while(str[i] != '\0')
+	{
+		write(1, str + i, 1);
+		i++;
+	}
+}

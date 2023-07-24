@@ -6,7 +6,7 @@
 #    By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 17:55:55 by msindreu          #+#    #+#              #
-#    Updated: 2023/06/09 18:14:36 by msindreu         ###   ########.fr        #
+#    Updated: 2023/07/24 11:27:31 by msindreu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ WHITE = \033[0;97m
 
 #Sources
 
-SRC_FILES	=	main
+SRC_FILES	=	main utils utils_libft
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEPS 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .d, $(SRC_FILES)))
@@ -63,7 +63,7 @@ $(NAME)::	 $(MINILIBX) $(OBJ)
 			@echo "\n👉 $(BLUE)$(CC) $(CFLAGS) $(FSANITIZE) $(OBJ) $(MINILIBXCC) $(OPENGL) -o $(NAME)$(DEF_COLOR)"
 
 $(NAME)::
-			@echo "\n$(GREEN)✨ FDF compiled!\n$(DEF_COLOR)"
+			@echo "\n$(GREEN)✨ Fractol compiled!\n$(DEF_COLOR)"
 
 bonus:
 			@$(MAKE) all

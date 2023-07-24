@@ -6,19 +6,21 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/06/30 16:42:43 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:33:16 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../inc/defines.h"
-#include "utils.c"
 
 int	main(int argc, char **argv)
 {
-	if (argc == 1) 
+	if (argc > 1) 
 	{
-		ft_error();
+		if (ft_check_input(argc, argv) == 0)
+		{
+			exit(1);
+		}
 	}
 	void *mlx;
 	void *mlx_win;

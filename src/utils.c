@@ -6,13 +6,13 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 10:25:14 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:37:50 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 
-# define ERROR "Error, please neter a valid argument\n"
+# define ERROR "Error, please enter a valid argument\n"
 # define PLEASE "Please, write one of the follow options:\n"
 # define JULIA "Julia (x, y)\n"
 # define MANDELBROT "Mandelbrot\n"
@@ -25,18 +25,6 @@ void	my_mlx_pixel_put(t_data *data, t_point pixel)
 	*(int*)dst = pixel.color;
 }
 
-void	ft_putstr(char *str) 
-{
-	int i;
-
-	i = 0;
-	while(str[i] != '\0') 
-	{
-		write(2, str + i, 1);
-		i++;
-	}
-}
-
 void	ft_error(void)
 {
 	ft_putstr(ERROR);
@@ -44,7 +32,13 @@ void	ft_error(void)
 	ft_putstr(JULIA);
 	ft_putstr(MANDELBROT);
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 971bc8ae81e3b2ff0797e89078d56457c68c3969
+int		ft_check_input(int argc, char **argv) 
+{
+	if (argc > 1 && argv) //&& !ft_strcmp(argv[1], "mandelbrot"))
+	{
+		ft_error();
+		return (1);
+	}
+	return (0);
+}
