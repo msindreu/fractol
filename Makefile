@@ -6,7 +6,7 @@
 #    By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 17:55:55 by msindreu          #+#    #+#              #
-#    Updated: 2023/07/24 11:27:31 by msindreu         ###   ########.fr        #
+#    Updated: 2023/07/24 11:50:00 by msindreu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,10 @@ SRC_DIR		:= src/
 OBJ_DIR		:= obj/
 CC			:= gcc
 CFLAGS		:= -g -Wall -Werror -Wextra
-#FSANITIZE	:= -fsanitize=address -g3
 NOFLAGS		:= -g
 RM			:= rm -f
 
 INC		 		:= inc/
-#LIB			:= lib/
-#LIBFT_DIR		:= $(LIB)LIBFT/
-#LIBFT			:= $(LIBFT_DIR)libft.a
 MINILIBX_DIR	:= mlx/
 MINILIBX		:= $(MINILIBX_DIR)libmlx.a
 MINILIBXCC		:= -I mlx -L $(MINILIBX_DIR) -lmlx
@@ -57,7 +53,6 @@ all:	$(NAME)
 
 -include 	${DEPS}
 $(NAME)::	 $(MINILIBX) $(OBJ)
-			#@make -sC $(LIBFT_DIR)
 			@make -sC $(MINILIBX_DIR)
 			@$(CC) $(CFLAGS) $(OBJ) $(MINILIBXCC) $(OPENGL) -o $(NAME)
 			@echo "\n👉 $(BLUE)$(CC) $(CFLAGS) $(FSANITIZE) $(OBJ) $(MINILIBXCC) $(OPENGL) -o $(NAME)$(DEF_COLOR)"
@@ -75,16 +70,11 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCS) | $(OBJF)
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)
 
-#$(LIBFT):
-			#@make -C $(LIBFT_DIR)
-			#@echo "$(GREEN)Libft compiled!\n$(DEF_COLOR)"
-
 $(MINILIBX):
 			@make -C $(MINILIBX_DIR)
 			@echo "\n$(GREEN)Minilibx compiled!\n$(DEF_COLOR)"
 
 clean:
-		#	@make clean -sC $(LIBFT_DIR)
 			@echo "\n$(CYAN)Libft object and dependency files cleaned!\n$(DEF_COLOR)"
 			@make clean -C $(MINILIBX_DIR)
 			@echo "\n$(CYAN)Minilibx object files cleaned!\n$(DEF_COLOR)"
@@ -96,7 +86,6 @@ fclean:		clean
 			@echo "\n$(CYAN)Fdf executable files cleaned!\n$(DEF_COLOR)"
 			@$(RM) -f $(MINILIBX_DIR)libmlx.a
 			@echo "\n$(CYAN)libmlx.a lib cleaned!\n$(DEF_COLOR)"
-		#	@$(RM) -f $(LIBFT_DIR)libft.a
 			@echo "\n$(CYAN)libft.a lib cleaned!\n$(DEF_COLOR)"
 
 
