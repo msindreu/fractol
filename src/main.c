@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:33:16 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:41:18 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 {
 	if (argc > 1) 
 	{
-		if (ft_check_input(argc, argv) == 0)
+		if (ft_check_input(argc, argv) == 1)
 		{
 			exit(1);
 		}
