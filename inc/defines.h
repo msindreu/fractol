@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 16:36:38 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:46:36 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			ft_mandelbrot(t_complex c);
 # define ROSA		0XFC86C8
 # define VERD		0X8FD19D
 # define AZULCIELO	0X88CCF2
-# define AZULMARIN	0X002F68  //00X5760EE
+# define AZULMARIN	0X07093B//0X002F68  //00X5760EE
 # define CORAL		0XFA535D
 # define NARANJA	0XFE834D
 # define BLANCOROTO	0XF2F2F2
