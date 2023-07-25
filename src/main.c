@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 13:54:57 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:39:42 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	void *mlx_win;
 	t_data	img;
 	t_point	pixel;
+	t_complex c;
 
 	mlx = mlx_init();	mlx_win = mlx_new_window(mlx, WINDOW_X, WINDOW_Y, "fractol");
 	img.img = mlx_new_image(mlx, WINDOW_X, WINDOW_Y);
@@ -33,8 +34,6 @@ int	main(int argc, char **argv)
 	pixel.x = 0;
 	pixel.y = 0;
 	pixel.color= AZULMARIN;
-	
-
 	
 	
 	//tres lines de colors
@@ -72,6 +71,8 @@ int	main(int argc, char **argv)
 	//pantalla tronja 
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
+		c = ft_complex(pixel.x, pixel.y);
+		pixel.color = ft_mandelbrot(c);
 		my_mlx_pixel_put(&img, pixel);
 		pixel.x++;
 		if (pixel.x == WINDOW_X)

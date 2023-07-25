@@ -6,7 +6,7 @@
 #    By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 17:55:55 by msindreu          #+#    #+#              #
-#    Updated: 2023/07/24 11:50:00 by msindreu         ###   ########.fr        #
+#    Updated: 2023/07/25 14:40:18 by msindreu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ WHITE = \033[0;97m
 
 #Sources
 
-SRC_FILES	=	main utils utils_libft
+SRC_FILES	=	main utils utils_libft utils_fractols
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEPS 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .d, $(SRC_FILES)))

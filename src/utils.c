@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:45:40 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 15:10:21 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,13 @@ int		ft_check_input(int argc, char **argv)
 		return (1);
 	}
 	return (0);
+}
+
+t_complex	ft_complex(int x, int y)
+{
+	t_complex	c;
+
+	c.x = ((float)x*3.0 / 1920.0) - 2.0;
+	c.y = ((float)y*2.0 / 1080.0) - 1.0;
+	return(c);
 }

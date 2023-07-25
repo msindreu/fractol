@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 13:50:45 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:39:59 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ typedef struct	s_complex {
 	double	y;
 }                t_complex;
 
-void	my_mlx_pixel_put(t_data *data, t_point pixel);
-int		ft_atoi(char *str);
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_putstr(char *str);
-void	ft_error(void);
-void	my_mlx_pixel_put(t_data *data, t_point pixel);
-int		ft_check_input(int argc, char **argv);
+void		my_mlx_pixel_put(t_data *data, t_point pixel);
+int			ft_atoi(char *str);
+int			ft_strcmp(const char *s1, const char *s2);
+void		ft_putstr(char *str);
+void		ft_error(void);
+void		my_mlx_pixel_put(t_data *data, t_point pixel);
+int			ft_check_input(int argc, char **argv);
+t_complex	ft_complex(int x, int y);
+int			ft_mandelbrot(t_complex c);
 # define TURQUESA 	0X60FAD2
 # define LILA		0XCD74FC
 # define ROSA		0XFC86C8
