@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:41:18 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:54:57 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,13 @@ int	main(int argc, char **argv)
 	void *mlx;
 	void *mlx_win;
 	t_data	img;
-	float	i;
-	float	j;
 	t_point	pixel;
 
-	mlx = mlx_init();
-	i = 0;
-	j = 0;
-	mlx_win = mlx_new_window(mlx, WINDOW_X, WINDOW_Y, "fractol");
+	mlx = mlx_init();	mlx_win = mlx_new_window(mlx, WINDOW_X, WINDOW_Y, "fractol");
 	img.img = mlx_new_image(mlx, WINDOW_X, WINDOW_Y);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	pixel.x = 100+i;
-	pixel.y = 100+j;
+	pixel.x = 0;
+	pixel.y = 0;
 	pixel.color= AZULMARIN;
 	
 
@@ -58,7 +53,7 @@ int	main(int argc, char **argv)
 	}*/
 
 	//quadradet verd bruno
-	while(i <= 100 && j <= 100) {
+	/*while(i <= 100 && j <= 100) {
 	pixel.x = 100+i;
 	pixel.y = 100+j;
 	pixel.color = AZULMARIN;
@@ -72,6 +67,18 @@ int	main(int argc, char **argv)
 		i=0;
 		j++;
 	}
+	}*/
+
+	//pantalla tronja 
+	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
+	{
+		my_mlx_pixel_put(&img, pixel);
+		pixel.x++;
+		if (pixel.x == WINDOW_X)
+		{
+			pixel.x= 0;
+			pixel.y++;
+		}
 	}
 
 	//diagonal blaveta

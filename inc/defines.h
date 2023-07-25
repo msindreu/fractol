@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/24 11:09:58 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:50:45 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ typedef struct s_point {
 	int		y;
 	int		color;
 }                 t_point;
+
+typedef struct	s_complex {
+	double	x;
+	double	y;
+}                t_complex;
 
 void	my_mlx_pixel_put(t_data *data, t_point pixel);
 int		ft_atoi(char *str);
