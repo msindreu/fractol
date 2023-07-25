@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 14:39:59 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:36:38 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ int			ft_check_input(int argc, char **argv);
 t_complex	ft_complex(int x, int y);
 int			ft_mandelbrot(t_complex c);
 # define TURQUESA 	0X60FAD2
-# define LILA		0XCD74FC
+# define LILA_CLAR	0XCD74FC
+# define LILA_MITJ	0XA236DC
+# define LILA_FOSC	0X7103AC
 # define ROSA		0XFC86C8
 # define VERD		0X8FD19D
 # define AZULCIELO	0X88CCF2
-# define AZULMARIN	0X5760EE
+# define AZULMARIN	0X002F68  //00X5760EE
 # define CORAL		0XFA535D
 # define NARANJA	0XFE834D
-# define BLACOROTO	0XF2F2F2
+# define BLANCOROTO	0XF2F2F2
+# define NEGRE		0X000000
 
 
 #endif
