@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 15:24:58 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/26 16:30:16 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_error(void)
 
 int		ft_check_input(int argc, char **argv) 
 {
-	if (argc > 1 && argv && ft_strcmp(argv[1], "mandelbrot") != 0)
+	if (argc != 2 || (ft_strcmp(argv[1], "Mandelbrot") != 0 && ft_strcmp(argv[1], "Julia") != 0))
 	{
 		ft_error();
 		return (1);
@@ -54,12 +54,12 @@ t_complex	ft_complex(int x, int y)
 
 int		ft_colors(int i)
 {
-	if (i > 50 && i < 90)
+	if (i > 50 && i < 70)
 	{
 		return (ROSA);
 	}
 
-	if (i > 90 && i < 250)
+	if (i > 70 && i < 250)
 	{
 		return (TURQUESA);
 	}

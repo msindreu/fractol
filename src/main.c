@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 15:39:56 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/26 16:27:13 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc > 1) 
+
+	if (ft_check_input(argc, argv) == 1)
 	{
-		if (ft_check_input(argc, argv) == 1)
-		{
-			exit(1);
-		}
+		exit(1);
 	}
 	void *mlx;
 	void *mlx_win;
@@ -69,16 +67,16 @@ int	main(int argc, char **argv)
 	}*/
 
 	//pantalla tronja 
+	
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
 		c = ft_complex(pixel.x, pixel.y);
-		if (ft_strcmp(argv[1], "mandelbrot") == 0)
+		if (ft_strcmp(argv[1], "Mandelbrot") == 0)
 		{
 			pixel.color = ft_colors(ft_mandelbrot(c));
 		}
-		if (ft_strcmpargv[1], "julia" == 0)
-		{
-			pixel.color = ft_colors(ft_julia(c));
+		if (ft_strcmp(argv[1], "Julia") == 0) {
+			pixel.color = ft_colors(ft_julia(c, -0.737, 0.285));
 		}
 		my_mlx_pixel_put(&img, pixel);
 		pixel.x++;
@@ -88,16 +86,7 @@ int	main(int argc, char **argv)
 			pixel.y++;
 		}
 	}
-
-	//diagonal blaveta
-/*	while (i < 1920 && j < 1080) {
-		my_mlx_pixel_put(&img, i, j, 0X0014bebe);
-		i = i + 1 + 1920/1080;
-		j = j +1 - 1920/1080;
-	}*/
-
-
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
+	}
 
-}
