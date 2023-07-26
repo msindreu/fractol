@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 15:10:21 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:24:58 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,29 @@ t_complex	ft_complex(int x, int y)
 	c.x = ((float)x*3.0 / 1920.0) - 2.0;
 	c.y = ((float)y*2.0 / 1080.0) - 1.0;
 	return(c);
+}
+
+int		ft_colors(int i)
+{
+	if (i > 50 && i < 90)
+	{
+		return (ROSA);
+	}
+
+	if (i > 90 && i < 250)
+	{
+		return (TURQUESA);
+	}
+
+	if (i > 250 && i < 500)
+	{
+		return (BLANCOROTO);
+	}
+
+	if (i == 500)
+	{
+		return (NEGRE);
+	}
+
+	return (AZULMARIN);
 }

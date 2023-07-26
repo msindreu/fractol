@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 14:39:42 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:39:56 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,14 @@ int	main(int argc, char **argv)
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
 		c = ft_complex(pixel.x, pixel.y);
-		pixel.color = ft_mandelbrot(c);
+		if (ft_strcmp(argv[1], "mandelbrot") == 0)
+		{
+			pixel.color = ft_colors(ft_mandelbrot(c));
+		}
+		if (ft_strcmpargv[1], "julia" == 0)
+		{
+			pixel.color = ft_colors(ft_julia(c));
+		}
 		my_mlx_pixel_put(&img, pixel);
 		pixel.x++;
 		if (pixel.x == WINDOW_X)

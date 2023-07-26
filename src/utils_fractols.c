@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:11:07 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/25 16:36:51 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:40:04 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,28 @@ int		ft_mandelbrot(t_complex c)
 		z.x = x_new;
 		i++;
 	}
-	/*if (i > 0 && i < 50)
-	{
-		return (LILA_MITJ);
-	}*/
+	return (i);
+}
 
-	if (i > 50 && i < 90)
+int	ft_julia(t_complex c, double x, double y)
+{
+	t_complex z;
+	int i;
+	double z2x;
+	double z2y;
+
+	i = 0;
+	z.x = c.x;
+	z.y = c.y;
+
+	while (i < 500 && (z2x + z2y) <= 4)
 	{
-		return (ROSA);
+		z2x = z.x*z.x;
+		z2y = z.y*z.y;
+		z.x = z2x + x;
+		z.y = z2y + y;
+		i++;
 	}
 
-	if (i > 90 && i < 250)
-	{
-		return (TURQUESA);
-	}
-	if (i > 250  && i < 500)
-	{
-		return (BLANCOROTO);
-	}
-	if (i == 500) 
-	{
-		return (NEGRE);
-	}
-	return (AZULMARIN);
+	return (i);
 }
