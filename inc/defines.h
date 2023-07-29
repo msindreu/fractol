@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 15:29:48 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/29 18:13:05 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ void		my_mlx_pixel_put(t_data *data, t_point pixel);
 int			ft_check_input(int argc, char **argv);
 t_complex	ft_complex(int x, int y);
 int			ft_mandelbrot(t_complex c);
-int ft_julia(t_complex c, double x, double y);
-int	ft_colors(int i);
+int 		ft_julia(t_complex c, double x, double y);
+int			ft_colors(int i);
+double		ft_unit_atod(char *str);
+char		*ft_strchr(const char *s, int c);
 # define TURQUESA 	0X60FAD2
 # define LILA_CLAR	0XCD74FC
 # define LILA_MITJ	0XA236DC

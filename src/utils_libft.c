@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 16:20:38 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/29 18:12:51 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,51 @@ void	ft_putstr(char *str)
 		write(1, str + i, 1);
 		i++;
 	}
+}
+
+double	ft_unity_atod(char *str)
+{
+	double	n;
+	int		d;
+
+	n = 1;
+	d = 10;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			n = -n;
+		str++;
+	}
+
+	while (*str != '\0')
+	{
+		n = n + (*str - 48)/d;
+		d *= 10;
+		str++;
+	}
+	return (n);
+}
+
+int		ft_len(char *str)
+{
+	int len;
+
+	len = 0;
+	while(str[len] != '\0')
+	{
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = ft_strlen(s);
+	while (i && (char)c != s[i])
+		i--;
+	if ((char)c == s[i])
+		return ((char *)s + i);
+	return (0);
 }
