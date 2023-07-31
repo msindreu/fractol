@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:41:01 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/29 18:13:05 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:27:07 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int 		ft_julia(t_complex c, double x, double y);
 int			ft_colors(int i);
 double		ft_unit_atod(char *str);
 char		*ft_strchr(const char *s, int c);
+int			ft_len(char *str);
+int			ft_check_values(char *str);
+
 # define TURQUESA 	0X60FAD2
 # define LILA_CLAR	0XCD74FC
 # define LILA_MITJ	0XA236DC

@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 16:30:16 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/07/31 15:27:14 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,3 +76,25 @@ int		ft_colors(int i)
 
 	return (AZULMARIN);
 }
+
+int		ft_check_values(char *str)
+{
+	int	i;
+	
+	i = 0;
+
+	if (ft_len(str > 7))
+		return (0);
+
+	if(str[0] == '+' || str[0] == '-')
+		str++;
+	while(str[i] >= '0' && str[i] <= '9')
+		i++;
+	if(str[i] == '.')
+	{
+		str++;
+		ft_check_values(str);
+	}
+	return (i);
+}
+
