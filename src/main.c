@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:27:46 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/26 16:27:13 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:52:29 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,13 @@ int	main(int argc, char **argv)
 	}*/
 
 	//pantalla tronja 
-	
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
 		c = ft_complex(pixel.x, pixel.y);
 		if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-		{
 			pixel.color = ft_colors(ft_mandelbrot(c));
-		}
-		if (ft_strcmp(argv[1], "Julia") == 0) {
+		if (ft_strcmp(argv[1], "Julia") == 0 && (ft_check_values(argv[2]) != 0 && ft_check_values(argv[3]) != 0))
 			pixel.color = ft_colors(ft_julia(c, -0.737, 0.285));
-		}
 		my_mlx_pixel_put(&img, pixel);
 		pixel.x++;
 		if (pixel.x == WINDOW_X)

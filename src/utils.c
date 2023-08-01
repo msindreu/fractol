@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 16:07:19 by msindreu          #+#    #+#             */
-/*   Updated: 2023/07/31 15:27:14 by msindreu         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:52:32 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void	ft_error(void)
 
 int		ft_check_input(int argc, char **argv) 
 {
-	if (argc != 2 || (ft_strcmp(argv[1], "Mandelbrot") != 0 && ft_strcmp(argv[1], "Julia") != 0))
+	if (argc != 1 || (ft_strcmp(argv[1], "Mandelbrot") != 0 && ft_strcmp(argv[1], "Julia") != 0))
+	{
+		ft_error();
+		return (1);
+	}
+
+	else if(argc == 3 && (ft_strcmp(argv[1], "Julia") == 0 && (ft_check_values(argv[2]) < 3 && ft_check_values(argv[3]) < 3)))
 	{
 		ft_error();
 		return (1);
@@ -83,9 +89,11 @@ int		ft_check_values(char *str)
 	
 	i = 0;
 
-	if (ft_len(str > 7))
+	if (ft_len(str) > 7)
+	{
+		ft_error();
 		return (0);
-
+	}
 	if(str[0] == '+' || str[0] == '-')
 		str++;
 	while(str[i] >= '0' && str[i] <= '9')
