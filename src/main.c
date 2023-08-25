@@ -33,40 +33,6 @@ int	main(int argc, char **argv)
 	pixel.y = 0;
 	pixel.color= AZULMARIN;
 	
-	
-	//tres lines de colors
-
-	/*while (i < img.line_length) {
-	my_mlx_pixel_put(&img, i, 1080/4, 0x003355FF);
-	my_mlx_pixel_put(&img, i, 1080/2, 0X00FF1122);
-	my_mlx_pixel_put(&img, i, 1080/2 + 1080/4, 0X0014bebe);
-	i++;
-	}*/
-
-	//4 pixels grocs a dalt pel bru
-	/*while (i < 4){
-	my_mlx_pixel_put(&img,i, 5, 0x00e8b025);
-	i++;
-	}*/
-
-	//quadradet verd bruno
-	/*while(i <= 100 && j <= 100) {
-	pixel.x = 100+i;
-	pixel.y = 100+j;
-	pixel.color = AZULMARIN;
-	my_mlx_pixel_put(&img, pixel);
-	//my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
-	//my_mlx_pixel_put(&img, 100+i, 100+j, AZULMARIN);
-	//my_mlx_pixel_put(&img, 100, 100+i, VERD);
-	//my_mlx_pixel_put(&img, 200, 100+i, VERD);
-	i++;
-	if (i == 100) {
-		i=0;
-		j++;
-	}
-	}*/
-
-	//pantalla tronja 
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
 		c = ft_complex(pixel.x, pixel.y);
