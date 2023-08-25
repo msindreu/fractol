@@ -61,13 +61,13 @@ void	ft_putstr(char *str)
 	}
 }
 
-double	ft_unity_atod(char *str)
+float	ft_unit_atod(char *str)
 {
-	double	n;
-	int		d;
+	float	n;
+	float		d;
 
-	n = 1;
-	d = 10;
+	n = 0;
+	d = 1;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
@@ -77,6 +77,8 @@ double	ft_unity_atod(char *str)
 
 	while (*str != '\0')
 	{
+		if (*str == '.')
+			str++;
 		n = n + (*str - 48)/d;
 		d *= 10;
 		str++;

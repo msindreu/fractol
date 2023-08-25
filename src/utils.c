@@ -42,8 +42,10 @@ int		ft_check_input(int argc, char **argv)
 	}
 	if (argc == 4 && (ft_strcmp(argv[1], "Julia") == 0)) {
 		if (ft_check_values(argv[2]) != 3 || ft_check_values(argv[3]) != 3)
-		ft_error();
-		return(1);
+		{
+			ft_error();
+			return(1);
+		}
 	}
 	return (0);
 }
@@ -102,9 +104,13 @@ int		ft_check_values(char *str)
 	if(str[i] == '.')
 	{
 		str = str + 2;
-		//write(1, "hola", 5);
 		i = ft_check_values(str);
 	}
 	return (i);
+}
+
+int	ft_keypress(int key,void *param)
+{
+	
 }
 

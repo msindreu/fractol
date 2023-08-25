@@ -40,6 +40,7 @@ typedef struct	s_complex {
 	double	y;
 }                t_complex;
 
+
 void		my_mlx_pixel_put(t_data *data, t_point pixel);
 int			ft_atoi(char *str);
 int			ft_strcmp(const char *s1, const char *s2);
@@ -49,12 +50,13 @@ void		my_mlx_pixel_put(t_data *data, t_point pixel);
 int			ft_check_input(int argc, char **argv);
 t_complex	ft_complex(int x, int y);
 int			ft_mandelbrot(t_complex c);
-int 		ft_julia(t_complex c, double x, double y);
+int 		ft_julia(t_complex c, float x, float y);
 int			ft_colors(int i);
-double		ft_unit_atod(char *str);
+float		ft_unit_atod(char *str);
 char		*ft_strchr(const char *s, int c);
 int			ft_len(char *str);
 int			ft_check_values(char *str);
+int	ft_keypress(int key,void *param);
 
 # define TURQUESA 	0X60FAD2
 # define LILA_CLAR	0XCD74FC

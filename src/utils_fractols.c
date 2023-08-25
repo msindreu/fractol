@@ -36,7 +36,7 @@ int		ft_mandelbrot(t_complex c)
 	return (i);
 }
 
-int	ft_julia(t_complex c, double x, double y)
+int	ft_julia(t_complex c, float x, float y)
 {
 	t_complex z;
 	int i;
