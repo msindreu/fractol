@@ -35,8 +35,13 @@ void	ft_error(void)
 
 int		ft_check_input(int argc, char **argv) 
 {
-	if ((argc == 3 && ft_strcmp(argv[1], "Mandelbrot") != 0) || (ft_strcmp(argv[1], "Julia") == 0 && argc != 4) || (argc < 2 || argc > 4))
+	if ( (argc < 2 || argc > 4) || (argc == 2 && ft_strcmp(argv[1], "Mandelbrot") != 0) || (ft_strcmp(argv[1], "Julia") == 0 && argc != 4))
 	{
+		ft_error();
+		return(1);
+	}
+	if (argc == 4 && (ft_strcmp(argv[1], "Julia") == 0)) {
+		if (ft_check_values(argv[2]) != 3 || ft_check_values(argv[3]) != 3)
 		ft_error();
 		return(1);
 	}
@@ -91,10 +96,13 @@ int		ft_check_values(char *str)
 	if(str[0] == '+' || str[0] == '-')
 		str++;
 	while(str[i] >= '0' && str[i] <= '9')
+	{
 		i++;
+	}
 	if(str[i] == '.')
 	{
-		str++;
+		str = str + 2;
+		write(1, "hola", 5);
 		ft_check_values(str);
 	}
 	return (i);
