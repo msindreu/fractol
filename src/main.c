@@ -34,6 +34,8 @@ int	main(int argc, char **argv)
 	pixel.y = 0;
 	pixel.color= AZULMARIN;
 	mlx_hook(mlx_win, 2, 0, ft_keypress, NULL);
+	mlx_hook(mlx_win, 17, 0, ft_exit, NULL);
+
 	
 	while(pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{

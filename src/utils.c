@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
+#include "../inc/keycodes.h"
 
 # define ERROR "Error, please enter a valid argument\n"
 # define PLEASE "Please, write one of the follow options:\n"
@@ -109,8 +110,17 @@ int		ft_check_values(char *str)
 	return (i);
 }
 
-int	ft_keypress(int key,void *param)
+int	ft_keypress(int key, void *param)
 {
-	
+	(void)*param;
+	if (key == KEY_ESC)
+		exit(1);
+	return (1);
+}
+
+int	ft_exit(void *param)
+{
+	(void)*param;
+	exit(1);
 }
 
