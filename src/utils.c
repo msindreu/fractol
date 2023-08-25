@@ -35,16 +35,10 @@ void	ft_error(void)
 
 int		ft_check_input(int argc, char **argv) 
 {
-	if (argc != 1 || (ft_strcmp(argv[1], "Mandelbrot") != 0 && ft_strcmp(argv[1], "Julia") != 0))
+	if ((argc == 3 && ft_strcmp(argv[1], "Mandelbrot") != 0) || (ft_strcmp(argv[1], "Julia") == 0 && argc != 4) || (argc < 2 || argc > 4))
 	{
 		ft_error();
-		return (1);
-	}
-
-	else if(argc == 3 && (ft_strcmp(argv[1], "Julia") == 0 && (ft_check_values(argv[2]) < 3 && ft_check_values(argv[3]) < 3)))
-	{
-		ft_error();
-		return (1);
+		return(1);
 	}
 	return (0);
 }
