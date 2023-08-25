@@ -102,8 +102,8 @@ int		ft_check_values(char *str)
 	if(str[i] == '.')
 	{
 		str = str + 2;
-		write(1, "hola", 5);
-		ft_check_values(str);
+		//write(1, "hola", 5);
+		i = ft_check_values(str);
 	}
 	return (i);
 }
