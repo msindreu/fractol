@@ -58,12 +58,24 @@ t_complex	ft_complex(int x, int y, double zoom)
 
 int	ft_colors(int i)
 {
-	if (i > 50 && i < 70)
-		return (ROSA);
-	if (i > 70 && i < 250)
+	if (i < 15)
+		return (AZULMARIN);
+	if (i < 30)
 		return (TURQUESA);
-	if (i > 250 && i < 500)
+	if (i < 45)
+		return (AZULCIELO);
+	if (i < 60)
+		return (LILA_CLAR);
+	if (i < 75)
 		return (BLANCOROTO);
+	if (i < 90)
+		return (ROSA);
+	if (i < 105)
+		return (NARANJA);
+	if (i < 120)
+		return (CORAL);
+	if (i < 150)
+		return (VERD);
 	if (i == 500)
 		return (NEGRE);
 	return (AZULMARIN);
