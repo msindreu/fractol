@@ -61,13 +61,12 @@ int	ft_julia(t_fractal *fractal)
 
 void	ft_draw(t_fractal	*fractal)
 {
-	t_point		pixel;
-	// t_complex	c;
-	
+	t_point	pixel;
+
 	pixel.x = 0;
 	pixel.y = 0;
 	pixel.color = AZULMARIN;
-while (pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
+	while (pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 	{
 		fractal->c = ft_complex(pixel.x, pixel.y, fractal->zoom);
 		pixel.color = ft_colors(fractal->ft_fractal(fractal));
@@ -79,5 +78,14 @@ while (pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
 			pixel.y++;
 		}
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->mlx_win, fractal->img.img, 0, 0);
+	mlx_put_image_to_window(fractal->mlx,
+		fractal->mlx_win, fractal->img.img, 0, 0);
+}
+
+void	my_mlx_pixel_put(t_data *data, t_point pixel)
+{
+	char	*dst;
+
+	dst = data->addr + ((pixel.y - 1) * WINDOW_X * 4 + pixel.x * 4);
+	*(int *) dst = pixel.color;
 }

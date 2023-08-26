@@ -14,18 +14,10 @@
 #include "../inc/defines.h"
 #include "../inc/keycodes.h"
 
-# define ERROR "Error, please enter a valid argument\n"
-# define PLEASE "Please, write one of the follow options:\n"
-# define JULIA "Julia (x, y)\n"
-# define MANDELBROT "Mandelbrot\n"
-
-void	my_mlx_pixel_put(t_data *data, t_point pixel)
-{
-	char	*dst;
-
-	dst = data->addr + ((pixel.y - 1) * WINDOW_X * 4 + pixel.x * 4);
-	* (int*) dst = pixel.color;
-}
+#define ERROR "Error, please enter a valid argument\n"
+#define PLEASE "Please, write one of the follow options:\n"
+#define JULIA "Julia (x, y)\n"
+#define MANDELBROT "Mandelbrot\n"
 
 void	ft_error(void)
 {
@@ -37,8 +29,9 @@ void	ft_error(void)
 
 int	ft_check_input(int argc, char **argv)
 {
-	if ((argc < 2 || argc > 4) || (argc == 2 && ft_strcmp(argv[1], "Mandelbrot") != 0) 
-	|| (ft_strcmp(argv[1], "Julia") == 0 && argc != 4))
+	if ((argc < 2 || argc > 4) 
+		|| (argc == 2 && ft_strcmp(argv[1], "Mandelbrot") != 0) 
+		|| (ft_strcmp(argv[1], "Julia") == 0 && argc != 4))
 	{
 		ft_error();
 		return (1);
@@ -76,53 +69,24 @@ int	ft_colors(int i)
 	return (AZULMARIN);
 }
 
-int		ft_check_values(char *str)
+int	ft_check_values(char *str)
 {
 	int	i;
-	
-	i = 0;
 
+	i = 0;
 	if (ft_len(str) > 7)
 	{
 		ft_error();
 		return (0);
 	}
-	if(str[0] == '+' || str[0] == '-')
+	if (str[0] == '+' || str[0] == '-')
 		str++;
-	while(str[i] >= '0' && str[i] <= '9')
-	{
+	while (str[i] >= '0' && str[i] <= '9')
 		i++;
-	}
-	if(str[i] == '.')
+	if (str[i] == '.')
 	{
 		str = str + 2;
 		i = ft_check_values(str);
 	}
 	return (i);
-}
-
-int	ft_keypress(int key, void *param)
-{
-	(void)*param;
-	if (key == KEY_ESC)
-		exit(1);
-	return (1);
-}
-
-int	ft_exit(void *param)
-{
-	(void)*param;
-	exit(1);
-}
-
-int	ft_mousepress(int button, int x, int y, t_fractal *fractal)
-{
-	(void)x;
-	(void)y;
-	if (button == 4)
-		fractal->zoom /= 0.5;
-	if (button == 5)
-		fractal->zoom *= 0.5;
-	ft_draw(fractal);
-	return(0);
 }

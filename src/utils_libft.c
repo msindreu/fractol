@@ -27,28 +27,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	nb;
-	int	s;
-
-	i = 0;
-	s = 1;
-	nb = 0;
-	if (str[i] == '-')
-	{
-		s = -s;
-		i++;
-	}
-	while (str[i])
-	{
-		nb = nb * 10 + str[i] - 48;
-		i++;
-	}
-	return (nb * s);
-}
-
 void	ft_putstr(char *str)
 {
 	int	i;
