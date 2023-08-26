@@ -15,41 +15,32 @@
 
 int	main(int argc, char **argv)
 {
-	void		*mlx;
-	void		*mlx_win;
-	t_data		img;
-	t_point		pixel;
-	t_complex	c;
+	t_fractal	fractal;
+	//t_point		pixel;
 
 	if (ft_check_input(argc, argv) == 1)
-	{
 		exit(1);
-	}
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, WINDOW_X, WINDOW_Y, "fractol");
-	img.img = mlx_new_image(mlx, WINDOW_X, WINDOW_Y);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	pixel.x = 0;
-	pixel.y = 0;
-	pixel.color = AZULMARIN;
-	mlx_hook(mlx_win, 2, 0, ft_keypress, NULL);
-	mlx_hook(mlx_win, 17, 0, ft_exit, NULL);
-	mlx_hook(mlx_win, 4, 0, ft_mousepress, NULL);
-	while (pixel.x <= WINDOW_X && pixel.y < WINDOW_Y)
+	
+
+	fractal.mlx = mlx_init();
+	fractal.mlx_win = mlx_new_window(fractal.mlx, WINDOW_X, WINDOW_Y, "fractol");
+	fractal.img.img = mlx_new_image(fractal.mlx, WINDOW_X, WINDOW_Y);
+	fractal.img.addr = mlx_get_data_addr(fractal.img.img, &fractal.img.bits_per_pixel, &fractal.img.line_length, &fractal.img.endian);
+	fractal.zoom = 1;
+	
+	if (ft_strcmp(argv[1], "Julia") == 0)
 	{
-		c = ft_complex(pixel.x, pixel.y);
-		if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-			pixel.color = ft_colors(ft_mandelbrot(c));
-		if (ft_strcmp(argv[1], "Julia") == 0)
-			pixel.color = ft_colors(ft_julia(c, ft_unit_atod(argv[2]), ft_unit_atod(argv[3])));
-		my_mlx_pixel_put(&img, pixel);
-		pixel.x++;
-		if (pixel.x == WINDOW_X)
-		{
-			pixel.x = 0;
-			pixel.y++;
-		}
+		fractal.k.x = ft_unit_atod(argv[2]);
+		fractal.k.y = ft_unit_atod(argv[3]);
+		fractal.ft_fractal = ft_julia;
 	}
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	else
+		fractal.ft_fractal = ft_mandelbrot;
+
+	mlx_hook(fractal.mlx_win, 2, 0, ft_keypress, NULL);
+	mlx_hook(fractal.mlx_win, 17, 0, ft_exit, NULL);
+	mlx_hook(fractal.mlx_win, 4, 0, ft_mousepress, &fractal);
+	
+	ft_draw(&fractal);
+	mlx_loop(fractal.mlx);
 }

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../mlx/mlx.h"
 #include "../inc/defines.h"
 #include "../inc/keycodes.h"
-#include <stdio.h>
 
 # define ERROR "Error, please enter a valid argument\n"
 # define PLEASE "Please, write one of the follow options:\n"
@@ -54,12 +54,12 @@ int	ft_check_input(int argc, char **argv)
 	return (0);
 }
 
-t_complex	ft_complex(int x, int y)
+t_complex	ft_complex(int x, int y, double zoom)
 {
 	t_complex	c;
 
-	c.x = (((float)x * 3.0 / 1920.0) - 2.0);
-	c.y = ((float)y * 2.0 / 1080.0) - 1.0;
+	c.x = (((float)x * 3.0 / 1920.0) - 2.0) / zoom;
+	c.y = (((float)y * 2.0 / 1080.0) - 1.0) / zoom;
 	return (c);
 }
 
@@ -115,15 +115,14 @@ int	ft_exit(void *param)
 	exit(1);
 }
 
-int	ft_mousepress(int button, int x, int y, void *param)
-{	static int zoom = 1;
-	(void)*param;
+int	ft_mousepress(int button, int x, int y, t_fractal *fractal)
+{
 	(void)x;
 	(void)y;
 	if (button == 4)
-		zoom -= 1;
+		fractal->zoom /= 0.5;
 	if (button == 5)
-		zoom += 1;
-	printf("zoom[%d]\n", zoom);
-	return(zoom);
+		fractal->zoom *= 0.5;
+	ft_draw(fractal);
+	return(0);
 }
