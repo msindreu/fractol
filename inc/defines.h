@@ -73,5 +73,4 @@ int	ft_mousepress(int button, int x, int y, void *param);
 # define BLANCOROTO	0XF2F2F2
 # define NEGRE		0X000000
 
-
 #endif

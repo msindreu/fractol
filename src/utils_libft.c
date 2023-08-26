@@ -49,12 +49,12 @@ int	ft_atoi(char *str)
 	return (nb * s);
 }
 
-void	ft_putstr(char *str) 
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		write(1, str + i, 1);
 		i++;
@@ -64,7 +64,7 @@ void	ft_putstr(char *str)
 float	ft_unit_atod(char *str)
 {
 	float	n;
-	float		d;
+	float	d;
 
 	n = 0;
 	d = 1;
@@ -74,27 +74,24 @@ float	ft_unit_atod(char *str)
 			n = -n;
 		str++;
 	}
-
 	while (*str != '\0')
 	{
 		if (*str == '.')
 			str++;
-		n = n + (*str - 48)/d;
+		n = n + (*str - 48) / d;
 		d *= 10;
 		str++;
 	}
 	return (n);
 }
 
-int		ft_len(char *str)
+int	ft_len(char *str)
 {
-	int len;
+	int	len;
 
 	len = 0;
-	while(str[len] != '\0')
-	{
+	while (str[len] != '\0')
 		len++;
-	}
 	return (len);
 }
 

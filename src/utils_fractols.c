@@ -12,18 +12,17 @@
 
 #include "../inc/defines.h"
 
-int		ft_mandelbrot(t_complex c) 
+int	ft_mandelbrot(t_complex c)
 {
-	t_complex z;
-	int i;
-	double z2x;
-	double z2y;
-	double x_new;
+	t_complex	z;
+	int			i;
+	double		z2x;
+	double		z2y;
+	double		x_new;
 
 	i = 0;
 	z.x = c.x;
 	z.y = c.y;
-
 	while (i < 500 && (z.x*z.x + z.y*z.y) <= 4)
 	{
 		z2x = z.x*z.x;
