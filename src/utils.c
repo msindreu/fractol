@@ -12,6 +12,7 @@
 
 #include "../inc/defines.h"
 #include "../inc/keycodes.h"
+#include <stdio.h>
 
 # define ERROR "Error, please enter a valid argument\n"
 # define PLEASE "Please, write one of the follow options:\n"
@@ -124,3 +125,17 @@ int	ft_exit(void *param)
 	exit(1);
 }
 
+int	ft_mousepress(int button, int x, int y, void *param)
+{	static int zoom = 1;
+	(void)*param;
+	(void)x;
+	(void)y;
+	if (button == 4)
+		zoom -= 1;
+	if (button == 5)
+		zoom += 1;
+	printf("zoom[%d]\n", zoom);
+	return(0);
+
+
+}

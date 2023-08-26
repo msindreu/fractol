@@ -58,6 +58,7 @@ int			ft_len(char *str);
 int			ft_check_values(char *str);
 int			ft_keypress(int key,void *param);
 int			ft_exit(void *param);
+int	ft_mousepress(int button, int x, int y, void *param);
 
 # define TURQUESA 	0X60FAD2
 # define LILA_CLAR	0XCD74FC
