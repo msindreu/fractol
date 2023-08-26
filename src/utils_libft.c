@@ -43,13 +43,15 @@ float	ft_unit_atod(char *str)
 {
 	float	n;
 	float	d;
+	int		sign;
 
 	n = 0;
 	d = 1;
+	sign = 1;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			n = -n;
+			sign = -sign;
 		str++;
 	}
 	while (*str != '\0')
@@ -60,7 +62,7 @@ float	ft_unit_atod(char *str)
 		d *= 10;
 		str++;
 	}
-	return (n);
+	return (n * sign);
 }
 
 int	ft_len(char *str)
