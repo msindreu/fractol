@@ -75,14 +75,3 @@ int	ft_len(char *str)
 	return (len);
 }
 
-char	*ft_strrchr(char *s, int c)
-{
-	size_t	i;
-
-	i = ft_len(s);
-	while (i && (char)c != s[i])
-		i--;
-	if ((char)c == s[i])
-		return ((char *)s + i);
-	return (0);
-}
